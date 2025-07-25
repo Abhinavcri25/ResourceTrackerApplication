@@ -10,11 +10,13 @@ import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
 import { GridComponent } from '@progress/kendo-angular-grid';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 import { FormBuilder, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
+
 
 @Component({
   selector: 'app-kendo-component',
   standalone: true,
-  imports: [CommonModule, GridModule, ExcelExportModule, PDFExportComponent, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, GridModule, ExcelExportModule, ReactiveFormsModule, FormsModule, PDFExportModule],
   templateUrl: './kendo-component.component.html',
   styleUrl: './kendo-component.component.scss'
 })
