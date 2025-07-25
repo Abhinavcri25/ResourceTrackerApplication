@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
-import { MyComponentComponent } from './my-component/my-component.component';
-// import { FormcompComponent } from "./formcomp/formcomp.component";
 import { CommonModule } from '@angular/common';
 import { DetailsComponent } from "./details/details.component";
 import { EmployeeServiceService } from './services/employee-service.service'; 
@@ -16,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MyComponentComponent, CommonModule, DetailsComponent,RouterLink,KendoComponentComponent,GridModule,ButtonsModule,MatIconModule],
+  imports: [RouterOutlet, CommonModule, DetailsComponent,RouterLink,KendoComponentComponent,GridModule,ButtonsModule,MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -40,8 +38,6 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
   showdetails(emp : employee){
-    // this.selecteduser = emp;
-    // this.viewmode = 'details';
     this.showtable = false;
     const id = emp.EmpId;
     this.router.navigate(['/details',id]);
@@ -55,14 +51,11 @@ export class AppComponent {
   }
   editformtabel(){
     this.viewmode = 'form';
-    // this.showtable = false;
-    // this.router.navigate(['/form']);
   }
   EditForm(data : employee){
     this.selecteduser = data;
     this.viewmode = 'form';
     this.showtable = false;
-    // const index = this.employeeList.indexOf(data);
   }
   delete(data : employee){
     this.empService.DeleteEmployee(+data.EmpId).subscribe(()=>{
@@ -77,7 +70,6 @@ export class AppComponent {
     this.router.events.subscribe((event)=>{
       if(event instanceof NavigationEnd && event.urlAfterRedirects === '/'){
         this.loadEmployeeList();
-        // this.employeeList = [...this.employeeList];
         this.showtable = true;
         this.viewmode = null;
         console.log("comming");
@@ -103,16 +95,6 @@ loadEmployeeList() {
   });
 }
 
-  // *************************************************
-  // getIndex(data: employee): number {
-  //   const index = this.employeeList.findIndex(e => 
-  //     e.Name === data.Name &&
-  //     e.email === data.email &&
-  //     e.phone === data.phone
-  //   );
-  //   return index;
-  // }
-  // **************************************************
 
 getIndex(data: employee): number {
   return this.employeeList.findIndex(e =>
@@ -133,21 +115,6 @@ getIndex(data: employee): number {
 
 
   Addemp(data : employee){
-    // const index = this.employeeList.findIndex(emp => (emp.email === data.email && emp.Name === data.Name && emp.phone === data.phone ));
-    // const index = this.getIndex(data);
-    // if(this.selecteduser){
-    //   this.employeeList[this.getIndex(this.selecteduser)] = data;
-    // }
-    // else if(index === -1){
-    //   this.employeeList.push(data);
-    // }
-    // else{
-    //   this.employeeList[index] = data;
-    // }
-    // this.viewmode = null;
-    // this.viewmode = 'grid';
-    // this.router.navigate(['/']);
-    // console.log(this.employeeList); 
     this.showtable = true;
     this.viewmode  = null;
     this.loadEmployeeList();
@@ -161,22 +128,8 @@ getIndex(data: employee): number {
     this.viewmode = 'grid';
   }
 
-  // public gridData = [
-  //   { id: 1, name: 'Abhinav', role: 'Developer', email: 'abhinav@example.com' },
-  //   { id: 2, name: 'Ravi', role: 'Tester', email: 'ravi@example.com' },
-  //   { id: 3, name: 'Sara', role: 'Manager', email: 'sara@example.com' }
-  // ];
 }
 
-// *******************************************
-
-// interface employee{
-//     Name : string,
-//     email : string,
-//     phone : string,
-// }
-
-// **********************************************
 
 export interface employee {
   EmpId: string;
