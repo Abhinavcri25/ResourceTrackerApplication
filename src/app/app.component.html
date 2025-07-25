@@ -1,0 +1,29 @@
+<!-- 
+
+<div class="header-container">
+  <h1 class="title"> Resource Tracker</h1>
+  <div class="nav-buttons">
+    <button (click)="homebutton()" class="nav-button home">🏠 Home</button>
+  </div>
+</div>
+
+
+<div class="table-actions">
+  <button (click)="showform()" class="action-button add">➕ Add</button>
+  <button routerLink="/kendo" class="action-button resources">📋 Resources</button>
+</div>
+
+
+<router-outlet></router-outlet>
+ -->
+
+<div class="top-bar">
+  <h1 class="title clickable" (click)="homebutton()">📘 Resource Tracker</h1>
+  <div class="top-actions">
+    <button (click)="showform()" class="nav-button add">➕ Add</button>
+    <button routerLink="/kendo" class="nav-button resources">📋 Resources</button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
