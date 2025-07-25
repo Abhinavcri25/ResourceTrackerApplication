@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
 import { MyComponentComponent } from './my-component/my-component.component';
-import { FormcompComponent } from "./formcomp/formcomp.component";
+// import { FormcompComponent } from "./formcomp/formcomp.component";
 import { CommonModule } from '@angular/common';
 import { DetailsComponent } from "./details/details.component";
 import { EmployeeServiceService } from './services/employee-service.service'; 
@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MyComponentComponent, FormcompComponent, CommonModule, DetailsComponent,RouterLink,KendoComponentComponent,GridModule,ButtonsModule,MatIconModule],
+  imports: [RouterOutlet, MyComponentComponent, CommonModule, DetailsComponent,RouterLink,KendoComponentComponent,GridModule,ButtonsModule,MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
