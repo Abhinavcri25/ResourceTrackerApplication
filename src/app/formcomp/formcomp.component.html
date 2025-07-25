@@ -1,0 +1,89 @@
+
+
+<form [formGroup]="newForm" (ngSubmit)="Submit()" class="resource-form">
+
+  <h2 class="form-title">Resource Registration</h2>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label> Resource Name</label>
+      <input type="text" formControlName="ResourceName" placeholder="Enter Resource Name" />
+    </div>
+
+    <div class="form-group">
+      <label>Designation</label>
+      <input type="text" formControlName="Designation" placeholder="Enter Designation" />
+    </div>
+
+    <div class="form-group">
+      <label>Reporting To</label>
+      <input type="text" formControlName="ReportingTo" placeholder="Enter Reporting To" />
+    </div>
+
+    <div class="form-group">
+      <label>Billable</label>
+      <select formControlName="Billable">
+        <option value="">Select Billable</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Technology / Skill</label>
+      <input type="text" formControlName="TechnologySkill" placeholder="Enter Technology/Skill" />
+    </div>
+
+    <div class="form-group">
+      <label>Project Allocation</label>
+      <input type="text" formControlName="ProjectAllocation" placeholder="Enter Project Allocation" />
+    </div>
+
+    <div class="form-group">
+      <label>Location</label>
+      <input type="text" formControlName="Location" placeholder="Enter Location" />
+    </div>
+
+    <div class="form-group">
+      <label>Email ID</label>
+      <input type="email" formControlName="EmailId" placeholder="Enter Email ID" />
+    </div>
+
+    <div class="form-group">
+      <label>CTE DOJ</label>
+      <input type="date" formControlName="CteDoj" />
+    </div>
+
+    <div class="form-group full-width">
+      <label>Remarks</label>
+      <textarea formControlName="Remarks" rows="3" placeholder="Enter Remarks"></textarea>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" [disabled]="!newForm.valid">Submit</button>
+  </div>
+
+</form>
+
+<div class="modal-backdrop" *ngIf="popupVisible">
+  <div class="modal">
+    <h2>{{ popupTitle }}</h2>
+    <div class="modal-content" *ngIf="popupData">
+      <p *ngIf="popupData?.EmpId"><strong>Employee ID:</strong> {{ popupData.EmpId }}</p>
+      <p><strong>Resource Name:</strong> {{ popupData.ResourceName }}</p>
+      <p><strong>Designation:</strong> {{ popupData.Designation }}</p>
+      <p><strong>Reporting To:</strong> {{ popupData.ReportingTo }}</p>
+      <p><strong>Billable:</strong> {{ popupData.Billable }}</p>
+      <p><strong>Technology Skill:</strong> {{ popupData.TechnologySkill }}</p>
+      <p><strong>Project Allocation:</strong> {{ popupData.ProjectAllocation }}</p>
+      <p><strong>Location:</strong> {{ popupData.Location }}</p>
+      <p><strong>Email ID:</strong> {{ popupData.EmailId }}</p>
+      <p><strong>CTE DOJ:</strong> {{ popupData.CteDoj }}</p>
+      <p><strong>Remarks:</strong> {{ popupData.Remarks }}</p>
+    </div>
+    <button (click)="closePopup()">OK</button>
+  </div>
+</div>
+
+

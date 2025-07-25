@@ -1,0 +1,22 @@
+  <table border="1" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Reporting To</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeList">
+        <td>{{ employee.ResourceName }}</td>
+        <td>{{ employee.EmailId }}</td>
+        <td>{{ employee.ReportingTo }}</td>
+        <td class="action-row">
+          <button (click)="Showdetails(employee)">Details</button>
+          <!-- <button (click)="editDetail(employee)">Edit</button>
+          <button (click)="deleteEmployee(employee.EmpId)">Delete</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
